@@ -1,5 +1,7 @@
+package simpleInheritance;
+
 /**
- * Simple class Person, that includes private instance variables firstName and lastName.
+ * Simple class simpleInheritance.Person, that includes private instance variables firstName and lastName.
  * */
 public class Person {
 

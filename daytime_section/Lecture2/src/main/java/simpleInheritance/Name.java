@@ -1,3 +1,5 @@
+package simpleInheritance;
+
 public class Name {
 
   private String firstName;

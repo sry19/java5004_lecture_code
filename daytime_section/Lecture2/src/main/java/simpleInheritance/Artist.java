@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Objects;
+package simpleInheritance;
 
 public class Artist extends Person {
 

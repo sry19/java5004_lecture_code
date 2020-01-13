@@ -1,5 +1,7 @@
+package simpleInheritance;
+
 /**
- * Starting class Author, copied from the lab assignment.
+ * Starting class simpleInheritance.Author, copied from the lab assignment.
  *
  */
 public class Author {
