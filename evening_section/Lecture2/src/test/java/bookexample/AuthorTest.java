@@ -34,7 +34,7 @@ public class AuthorTest {
     }
 
     @Test
-    public void setEmail() {
+    public void setEmail() throws InvalidEmailException {
         Email newEmail = new Email("darth@siths.com");
         author.setEmail(newEmail);
         assertEquals("darth@siths.com", author.getEmail().getAddress());

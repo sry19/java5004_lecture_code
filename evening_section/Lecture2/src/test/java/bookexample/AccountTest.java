@@ -30,16 +30,26 @@ public class AccountTest {
     }
 
     @Test
-    public void isUser() {
+    public void isUser() throws InvalidEmailException {
         Email sameEmail =  new Email("lordvader@darkside.com");
         String samePassword =  "darkside4eva";
         assertTrue(account.isUser(sameEmail, samePassword));
     }
 
     @Test
-    public void isNotUser() {
+    public void isNotUser() throws InvalidEmailException {
         Email sameEmail = new Email("lordvader@darkside.com");
         String diffPassword = "password";
         assertFalse(account.isUser(sameEmail, diffPassword));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidPassword() throws InvalidEmailException {
+        Account newAccount = new Account(new Name("a", "person"), new Email("a@bc.com"), "1234");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidReset() {
+        account.resetPassword("1234");
     }
 }

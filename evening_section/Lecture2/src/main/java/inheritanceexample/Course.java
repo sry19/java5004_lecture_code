@@ -1,5 +1,7 @@
 package inheritanceexample;
 
+import java.util.Objects;
+
 /**
  * A mutable class representing a Course.
  */
@@ -16,7 +18,6 @@ public class Course {
         this.courseId = courseId;
         this.courseName = courseName;
     }
-
 
     /**
      * Getter for the course ID.
@@ -52,5 +53,17 @@ public class Course {
         this.courseName = courseName;
     }
 
-    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return getCourseId().equals(course.getCourseId()) &&
+                getCourseName().equals(course.getCourseName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCourseId(), getCourseName());
+    }
 }

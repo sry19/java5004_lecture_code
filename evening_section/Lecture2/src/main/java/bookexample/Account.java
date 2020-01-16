@@ -18,7 +18,19 @@ public class Account {
     public Account(Name name, Email loginEmail, String password) {
         this.name = name;
         this.loginEmail = loginEmail;
+        this.validatePassword(password);
         this.password = password;
+    }
+
+
+    /**
+     * Checks that the password is valid. Throws an exception if the password is invalid.
+     * @param password The password to check.
+     */
+    private void validatePassword(String password) {
+        int MIN_LENGTH = 8;
+        if (password.length() < MIN_LENGTH)
+            throw new IllegalArgumentException("Password too short!");
     }
 
     /**
@@ -45,5 +57,14 @@ public class Account {
      */
     public boolean isUser(Email email, String password) {
         return this.loginEmail.getAddress().equals(email.getAddress()) && this.password.equals(password);
+    }
+
+    /**
+     * Resets the password for this account.
+     * @param password The new password.
+     */
+    public void resetPassword(String password) {
+        this.validatePassword(password);
+        this.password = password;
     }
 }

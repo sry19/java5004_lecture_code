@@ -12,7 +12,7 @@ public class BookTest {
 
     @Before
     public void setUp() throws Exception {
-        lewisCarroll = new Author(new Name("Lewis", "Carroll"), new Email("N/A"), "N/A");
+        lewisCarroll = new Author(new Name("Lewis", "Carroll"), new Email("lewis@email.com"), "N/A");
         alice = new Book(lewisCarroll, "Alice's Adventures in Wonderland", 2014,
                 "CreateSpace", "1503222683");
     }
@@ -37,6 +37,12 @@ public class BookTest {
     @Test
     public void getISBN() {
         assertEquals("1503222683", alice.getISBN());
+    }
+
+    @Test(expected = InvalidISBNException.class)
+    public void invalidISBN() throws InvalidISBNException {
+        Book book = new Book(lewisCarroll, "Alice's Adventures in Wonderland", 2014,
+                "CreateSpace", "150322268");
     }
 
 }

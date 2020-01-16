@@ -20,13 +20,19 @@ public class Book {
      * @param publicationYear The publication year.
      * @param publisher The publisher.
      * @param ISBN The ISBN number.
+     * @throws InvalidISBNException if the ISBN is not valid.
      */
-    public Book(Author author, String title, int publicationYear, String publisher, String ISBN) {
+    public Book(Author author, String title, int publicationYear, String publisher, String ISBN)
+            throws InvalidISBNException {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
         this.publisher = publisher;
-        this.ISBN = ISBN;
+        if (this.isValidISBN(ISBN))
+            this.ISBN = ISBN;
+        else {
+            throw new InvalidISBNException();
+        }
     }
 
     /**

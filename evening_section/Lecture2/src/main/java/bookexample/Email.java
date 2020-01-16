@@ -7,18 +7,18 @@ package bookexample;
  */
 public class Email {
     private static final int EXPECTED_LENGTH = 2;
-    private static final String INVALID = "Invalid email";
     private String address;
 
     /**
      * Constructor for the Email class.
      * @param email The email address, a String.
+     * @throws InvalidEmailException if the email is not a valid format.
      */
-    public Email(String email) {
+    public Email(String email) throws InvalidEmailException {
         if (this.isValidFormat(email)) {
             this.address = email;
         } else {
-            this.address = INVALID;
+            throw new InvalidEmailException();
         }
     }
 
