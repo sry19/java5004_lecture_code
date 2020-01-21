@@ -1,5 +1,9 @@
+package problem1;
+
+import java.util.Objects;
+
 /*
- * Class Athlete contains information about an athlete, including athlete's name, their height, weight and league.
+ * Class problem1.Athlete contains information about an athlete, including athlete's name, their height, weight and league.
  */
 public class Athlete {
 
@@ -14,7 +18,7 @@ public class Athlete {
   * @param height - athlete's height, expressed as a Double in cm (e.g., 6'2'' is recorded as 187.96cm)
   * @param weight - athlete's weigh, expressed as a Double in pounds (e.g. 125, 155, 200 pounds)
   * @param league - athelete's league, expressed as String
-  * @return - object Athlete
+  * @return - object problem1.Athlete
    */
   public Athlete(Name athletesName, Double height, Double weight, String league) {
     this.athletesName = athletesName;
@@ -29,7 +33,7 @@ public class Athlete {
    * @param athletesName - object Name, containing athlete's first, middle and last name
    * @param height - athlete's height, expressed as a Double in cm (e.g., 6'2'' is recorded as 187.96cm)
    * @param weight - athlete's weigh, expressed as a Double in pounds (e.g. 125, 155, 200 pounds)
-   * @return - object Athlete, with league field set to null
+   * @return - object problem1.Athlete, with league field set to null
    */
 
   public Athlete(Name athletesName, Double height, Double weight) {
@@ -65,5 +69,21 @@ public class Athlete {
    */
   public String getLeague() {
     return league;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Athlete)) return false;
+    Athlete athlete = (Athlete) o;
+    return Objects.equals(getAthletesName(), athlete.getAthletesName()) &&
+        Objects.equals(getHeight(), athlete.getHeight()) &&
+        Objects.equals(getWeight(), athlete.getWeight()) &&
+        Objects.equals(getLeague(), athlete.getLeague());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(getAthletesName(), getHeight(), getWeight(), getLeague());
   }
 }
