@@ -65,3 +65,5 @@ daytime_section/Lecture2/gradlew
 daytime_section/Lecture2/settings.gradle
 labs/gradlew
 labs/settings.gradle
+labs/Lab1/gradlew
+labs/Lab1/settings.gradle
