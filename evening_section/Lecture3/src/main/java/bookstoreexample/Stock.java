@@ -45,13 +45,16 @@ public class Stock {
      * @param day The day of purchase.
      * @return The price after and discount has been applied.
      */
-    public double getPrice(String day) {
-        if (day.equals("Monday")) {
-            return this.retailPrice * TEN_PERCENT_OFF;
-        } else if (day.equals("Tuesday") || day.equals("Thursday")) {
-            return this.retailPrice *  FIFTY_PERCENT_OFF;
+    public double getPrice(DayOfWeek day) {
+        switch (day) {
+            case MONDAY:
+                return this.retailPrice * TEN_PERCENT_OFF;
+            case TUESDAY:
+            case THURSDAY:
+                return this.retailPrice * FIFTY_PERCENT_OFF;
+            default:
+                return this.retailPrice;
         }
-        return this.retailPrice;
     }
 
     @Override
