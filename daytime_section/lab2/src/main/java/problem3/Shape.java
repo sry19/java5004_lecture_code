@@ -1,3 +1,5 @@
+package problem3;
+
 /**
  * This interface contains all operations that all types of shapes
  * should support.
@@ -27,7 +29,7 @@ public interface Shape extends Comparable<Shape>{
    * Create and return a shape of the same kind as this one, resized
    * in area by the provided factor
    * @param factor factor of resizing
-   * @return the resized Shape
+   * @return the resized problem3.Shape
    */
   Shape resize(double factor);
 }

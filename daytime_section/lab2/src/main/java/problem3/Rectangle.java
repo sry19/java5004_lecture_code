@@ -1,6 +1,8 @@
+package problem3;
+
 /**
  * This class represents a rectangle.  It defines all the operations mandated by
- * the Shape interface
+ * the problem3.Shape interface
  */
 public class Rectangle extends AbstractShape {
   private double width, height;
@@ -14,11 +16,13 @@ public class Rectangle extends AbstractShape {
    * @param width  width of this rectangle
    * @param height height of this rectangle
    */
-  public Rectangle(double x, double y, double width, double height) {
+  public Rectangle(double x, double y, double width, double height) throws NegativeSidesException {
     super(new Point2D(x, y));
 
+    if (width > 0 && height > 0) {
       this.width = width;
       this.height = height;
+    } else throw new NegativeSidesException("Height and width are not set properly!");
   }
 
   @Override
@@ -34,15 +38,19 @@ public class Rectangle extends AbstractShape {
   @Override
   public Shape resize(double factor) {
     double sqrtFactor = Math.sqrt(factor);
-    return new Rectangle(
-        this.reference.getX(),
-        this.reference.getY(), sqrtFactor *
-        this.width,
-        sqrtFactor * this.height);
+    try {
+      return new Rectangle(
+          this.reference.getX(),
+          this.reference.getY(), sqrtFactor *
+          this.width,
+          sqrtFactor * this.height);
+    } catch (NegativeSidesException e) {
+      e.printStackTrace();
+    }
   }
 
   public String toString() {
-    return String.format("Rectangle: LL corner (%.3f,%.3f) width %.3f height " +
+    return String.format("problem3.Rectangle: LL corner (%.3f,%.3f) width %.3f height " +
             "%.3f",
         this.reference.getX(), this.reference.getY(), this.width, this
             .height);

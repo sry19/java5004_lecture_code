@@ -1,3 +1,5 @@
+package assignment1;
+
 /*
  * Class Athlete contains information about an athlete, including athlete's name, their height, weight and league.
  */
