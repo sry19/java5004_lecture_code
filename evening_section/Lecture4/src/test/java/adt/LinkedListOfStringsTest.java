@@ -3,18 +3,16 @@ package adt;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.*;
 
-public class IListOfStringsTest {
+public class LinkedListOfStringsTest {
     IListOfStrings empty;
     IListOfStrings aList;
 
     @Before
     public void setUp() throws Exception {
-        empty = ListOfStrings.createEmpty();
-        aList = ListOfStrings.createEmpty();
+        empty = LinkedListOfStrings.createEmpty();
+        aList = LinkedListOfStrings.createEmpty();
         aList.add("A");
         aList.add("B");
     }
@@ -23,11 +21,13 @@ public class IListOfStringsTest {
     public void insert() {
         aList.insert("C", 0);
         aList.insert("D", 1);
-        IListOfStrings copy = new ListOfStrings();
+        IListOfStrings copy = new LinkedListOfStrings();
         copy.add("C");
         copy.add("D");
         copy.add("A");
         copy.add("B");
+        System.out.println(aList.toString());
+        System.out.println(copy.toString());
         assertTrue(aList.equals(copy));
     }
 
@@ -72,6 +72,7 @@ public class IListOfStringsTest {
 
     @Test
     public void testHashcode() {
-        assertTrue(empty.hashCode() == ListOfStrings.createEmpty().hashCode());
+        assertTrue(empty.hashCode() == LinkedListOfStrings.createEmpty().hashCode());
     }
+
 }

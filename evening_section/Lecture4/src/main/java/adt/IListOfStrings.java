@@ -28,13 +28,6 @@ public interface IListOfStrings {
     String get(int index) throws IndexOutOfBoundsException;
 
     /**
-     * Remove the given item from the list, if it exists. If the item occurs multiple times, only the first occurrence
-     * will be removed.
-     * @param item The item to remove.
-     */
-    void remove(String item);
-
-    /**
      * The number of items in the list.
      * @return The number of items in the list.
      */

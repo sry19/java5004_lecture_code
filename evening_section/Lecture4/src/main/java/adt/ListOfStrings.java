@@ -121,17 +121,6 @@ public class ListOfStrings implements IListOfStrings {
     }
 
     /**
-     * Remove the given item from the list, if it exists. If the item occurs multiple times, only the first occurrence
-     * will be removed.
-     *
-     * @param item The item to remove.
-     */
-    @Override
-    public void remove(String item) {
-        // Your implementation here.
-    }
-
-    /**
      * The number of items in the list.
      *
      * @return The number of items in the list.
