@@ -33,4 +33,16 @@ public interface IListOfStrings {
      */
     int size();
 
+    /**
+     * Returns a sub list of the items that contain the given substring.
+     * @param substring The substring to filter by.
+     * @return A list of strings.
+     */
+    IListOfStrings filter(String substring);
+
+    /**
+     * Returns a copy of the list with items in reverse.
+     * @return The list in reverse.
+     */
+    IListOfStrings reverse();
 }

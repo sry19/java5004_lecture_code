@@ -94,7 +94,14 @@ public class ListOfStrings implements IListOfStrings {
      */
     @Override
     public void insert(String item, int index) throws IndexOutOfBoundsException {
-        // Your implementation here
+        this.checkBounds(index);
+        int newLength = this.inSizeRange() ? this.items.length : this.items.length + NUM_SLOTS;
+        String[] newItems = new String[newLength];
+        this.copyItems(this.items, newItems, 0, index, 0);
+        newItems[index] = item;
+        this.copyItems(this.items, newItems, index, this.size, index + 1);
+        this.size++;
+        this.items = newItems;
     }
 
     /**
@@ -128,6 +135,35 @@ public class ListOfStrings implements IListOfStrings {
     @Override
     public int size() {
         return this.size;
+    }
+
+    /**
+     * Returns a sub list of the items that contain the given substring.
+     *
+     * @param substring The substring to filter by.
+     * @return A list of strings.
+     */
+    @Override
+    public IListOfStrings filter(String substring) {
+        IListOfStrings sublist = createEmpty();
+        for (int i = 0; i < this.size; i++) {
+            if (this.items[i].contains(substring))
+                sublist.add(this.items[i]);
+        }
+        return sublist;
+    }
+
+    /**
+     * Returns a copy of the list with items in reverse.
+     *
+     * @return The list in reverse.
+     */
+    @Override
+    public IListOfStrings reverse() {
+        IListOfStrings reversed = ListOfStrings.createEmpty();
+        for (int i = this.size - 1; i >= 0; i--)
+            reversed.add(this.items[i]);
+        return reversed;
     }
 
     /**

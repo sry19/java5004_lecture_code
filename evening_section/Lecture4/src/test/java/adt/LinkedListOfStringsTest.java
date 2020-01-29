@@ -75,4 +75,26 @@ public class LinkedListOfStringsTest {
         assertTrue(empty.hashCode() == LinkedListOfStrings.createEmpty().hashCode());
     }
 
+    @Test
+    public void filter()  {
+        aList.add("Aardvark");
+        aList.add("apple");
+        IListOfStrings copy = LinkedListOfStrings.createEmpty();
+        copy.add("A");
+        copy.add("Aardvark");
+        assertTrue(copy.equals(aList.filter("A")));
+    }
+
+    @Test
+    public void reverse() {
+        aList.add("C");
+        aList.add("D");
+        IListOfStrings rev = LinkedListOfStrings.createEmpty();
+        rev.add("D");
+        rev.add("C");
+        rev.add("B");
+        rev.add("A");
+        assertTrue(rev.equals(aList.reverse()));
+        assertTrue(empty.reverse().equals(LinkedListOfStrings.createEmpty()));
+    }
 }

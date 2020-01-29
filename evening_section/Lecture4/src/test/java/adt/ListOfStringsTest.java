@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class IListOfStringsTest {
+public class ListOfStringsTest {
     IListOfStrings empty;
     IListOfStrings aList;
 
@@ -73,5 +73,23 @@ public class IListOfStringsTest {
     @Test
     public void testHashcode() {
         assertTrue(empty.hashCode() == ListOfStrings.createEmpty().hashCode());
+    }
+
+    @Test
+    public void filter()  {
+        aList.add("Aardvark");
+        aList.add("apple");
+        IListOfStrings copy = ListOfStrings.createEmpty();
+        copy.add("A");
+        copy.add("Aardvark");
+        assertTrue(copy.equals(aList.filter("A")));
+    }
+
+    @Test
+    public void reverse() {
+        IListOfStrings rev = ListOfStrings.createEmpty();
+        rev.add("B");
+        rev.add("A");
+        assertTrue(rev.equals(aList.reverse()));
     }
 }

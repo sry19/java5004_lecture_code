@@ -103,6 +103,43 @@ public class LinkedListOfStrings implements IListOfStrings {
         return this.numNodes;
     }
 
+    /**
+     * Returns a sub list of the items that contain the given substring.
+     *
+     * @param substring The substring to filter by.
+     * @return A list of strings.
+     */
+    @Override
+    public IListOfStrings filter(String substring) {
+        IListOfStrings sublist = createEmpty();
+        Node currNode = this.head;
+        while (currNode != null) {
+            if (currNode.getItem().contains(substring))
+                sublist.add(currNode.getItem());
+            currNode = currNode.getNextNode();
+        }
+        return sublist;
+    }
+
+    /**
+     * Returns a copy of the list with items in reverse.
+     *
+     * @return The list in reverse.
+     */
+    @Override
+    public IListOfStrings reverse() {
+        IListOfStrings reversed = LinkedListOfStrings.createEmpty();
+        if (this.head == null)
+            return this;
+        reversed.add(this.head.getItem());
+        Node nextNode = this.head.getNextNode();
+        while (nextNode != null) {
+            reversed.insert(nextNode.getItem(), 0);
+            nextNode = nextNode.getNextNode();
+        }
+        return reversed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
