@@ -2,26 +2,27 @@ package linkedList;
 
 import java.io.*;
 
-public class LinkedList {
+public class LinkedList implements List{
 
   Node head; // head of list
 
+
   // Method to insert a new node
-  public static LinkedList insert(LinkedList list, Integer data)
-  {
+  @Override
+  public void insertElement(Integer element)  {
     // Create a new node with given data
-    Node newNode = new Node(data);
+    Node newNode = new Node(element);
     newNode.next = null;
 
     // If the Linked List is empty,
     // then make the new node as head
-    if (list.head == null) {
-      list.head = newNode;
+    if (this.head == null) {
+      this.head = newNode;
     }
     else {
       // Else traverse till the last node
       // and insert the new_node there
-      Node last = list.head;
+      Node last = this.head;
       while (last.next != null) {
         last = last.next;
       }
@@ -29,15 +30,11 @@ public class LinkedList {
       // Insert the new_node at last node
       last.next = newNode;
     }
-
-    // Return the list by head
-    return list;
   }
 
-  // Method to print the LinkedList.
-  public static void printList(LinkedList list)
-  {
-    Node currNode = list.head;
+  @Override
+  public  void printList() {
+    Node currNode = this.head;
 
     System.out.print("LinkedList: ");
 
@@ -51,27 +48,9 @@ public class LinkedList {
     }
   }
 
-  // Driver code
-  public static void main(String[] args)
-  {
-    /* Start with the empty list. */
-    LinkedList list = new LinkedList();
-
-    //
-    // ******INSERTION******
-    //
-
-    // Insert the values
-    list = insert(list, 1);
-    list = insert(list, 2);
-    list = insert(list, 3);
-    list = insert(list, 4);
-    list = insert(list, 5);
-    list = insert(list, 6);
-    list = insert(list, 7);
-    list = insert(list, 8);
-
-    // Print the LinkedList
-    printList(list);
+  @Override
+  public Integer size() {
+    //Method not implemented
+    return null;
   }
 }
