@@ -3,16 +3,14 @@ package animals;
 /**
  * Represents a domestic cat
  */
-public class Cat implements Animal {
-    private String name;
-
+public class Cat extends AbstractPet {
     /**
      * Cat constructor.
      *
      * @param name The pet's name.
      */
     public Cat(String name) {
-        this.name = name;
+        super(name);
     }
 
     /**

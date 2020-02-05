@@ -3,15 +3,14 @@ package animals;
 /**
  * Represents a cow.
  */
-public class Cow implements Animal {
-    private String id;
+public class Cow extends AbstractFarmAnimal {
     /**
      * Farm animal constructor
      *
      * @param id The animal's ID
      */
     public Cow(String id) {
-        this.id = id;
+        super(id);
     }
 
     /**
