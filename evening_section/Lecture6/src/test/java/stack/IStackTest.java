@@ -11,7 +11,7 @@ public class IStackTest {
 
     @Before
     public void setUp() throws Exception {
-        //UNCOMMENT AFTER IMPLEMENTATION emptyStack = Stack.createEmpty();
+        emptyStack = Stack.createEmpty();
     }
 
     @Test

@@ -3,13 +3,14 @@ package linkedlist;
 import java.util.Objects;
 
 public class ElementNode implements ILinkedList {
-    Integer item;
-    ILinkedList rest;
+    private Integer item;
+    private ILinkedList rest;
 
     public ElementNode(Integer item, ILinkedList rest) {
         this.item = item;
         this.rest = rest;
     }
+
 
     /**
      * Gets the number of elements in the list.
@@ -58,10 +59,9 @@ public class ElementNode implements ILinkedList {
      * @param item  The item to insert.
      * @param index The index to insert at.
      * @return The linked list with the new item inserted.
-     * @throws IndexOutOfBoundsException If the specified index is out of bounds.
      */
     @Override
-    public ILinkedList insertAt(Integer item, Integer index) throws IndexOutOfBoundsException {
+    public ILinkedList insertAt(Integer item, Integer index) {
         if (index.equals(0)) {
             ILinkedList thisCopy = new ElementNode(this.item, this.rest);
             return new ElementNode(item, thisCopy);
@@ -75,13 +75,13 @@ public class ElementNode implements ILinkedList {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ElementNode that = (ElementNode) o;
-        return Objects.equals(getItem(), that.getItem()) &&
-                Objects.equals(getRest(), that.getRest());
+        return Objects.equals(item, that.item) &&
+                Objects.equals(rest, that.rest);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getItem(), getRest());
+        return Objects.hash(item, rest);
     }
 
     @Override

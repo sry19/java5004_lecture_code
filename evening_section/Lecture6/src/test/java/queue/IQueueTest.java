@@ -11,7 +11,7 @@ public class IQueueTest {
 
     @Before
     public void setUp() throws Exception {
-        //UNCOMMENT AFTER IMPLEMENTATION emptyQ = Queue.createEmpty();
+        emptyQ = Queue.createEmpty();
     }
 
     @Test
