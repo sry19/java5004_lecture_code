@@ -20,7 +20,7 @@ public interface GameState {
    * @param other the oponnent's state
    * @return true if this object wins based on the game rules, false otherwise.
    */
-  //Boolean winOrLoss(GameState other);
+  Boolean winOrLoss(GameState other);
 
   /**
    * Given another state return true if this state wins, false otherwise

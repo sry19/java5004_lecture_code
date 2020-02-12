@@ -61,7 +61,6 @@ public class Paper extends AbstractGameState {
    */
   @Override
   public Boolean winOrLoss2(GameState other) {
-    //flip the return type
     return other.winOrLoss2(this);
   }
 
