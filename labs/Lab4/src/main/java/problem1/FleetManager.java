@@ -21,15 +21,15 @@ public class FleetManager {
     return new TripReport(vehicle, vehicle.getAverageSpeed(), distance, duration);
   }
 
-  //TripReport drive(Vehicle vehicle, Float distance, Integer duration, Float speed) {
-   // if (validateLawsOfPhysics(duration, distance, speed) || validateSpeed(speed)) {
-   //   return new TripReport(vehicle, speed, distance, duration);
-  //  } else throw new InputMismatchException("Vehicle moving faster than the speed of light!");
- // }
+  TripReport drive(Vehicle vehicle, Float distance, Integer duration, Float speed) {
+    return null;
+   }
 
-//  TripRerport drive (Boat boat, Float distance){
-    //
- // }
- // Tripreport drive (Train train, Float distance){}
-//  TriReport drive (Bus bus, Float distance){}
+  TripReport drive (Boat boat, Float distance){
+    return null;
+  }
+
+  TripReport drive (Train train, Float distance) {
+    return null;
+  }
 }
