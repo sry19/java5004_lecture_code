@@ -69,3 +69,14 @@ labs/Lab1/gradlew
 labs/Lab1/settings.gradle
 labs/Lab2/gradlew
 labs/Lab2/settings.gradle
+daytime_section/Lab1/build.gradle
+daytime_section/Lab1/src/main/java/Author.java
+daytime_section/Lab1/src/test/java/PersonTest.java
+daytime_section/lab2/build.gradle
+daytime_section/Lecture2/build.gradle
+daytime_section/Lecture3/gradlew
+daytime_section/Lecture3/settings.gradle
+daytime_section/Lecture4/gradlew
+daytime_section/Lecture4/settings.gradle
+daytime_section/Lecture3_OOD_exercise/gradlew
+*.gradle
