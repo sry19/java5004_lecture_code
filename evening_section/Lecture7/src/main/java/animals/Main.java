@@ -2,11 +2,11 @@ package animals;
 
 public class Main {
 
-    public static boolean isOdd(int i) {
+    private static boolean isOdd(int i) {
         return i % 2 == 1;
     }
 
-    public static AbstractPet createPet(String species, String name) {
+    private static AbstractPet createPet(String species, String name) {
         String speciesLower = species.toLowerCase();
         if (speciesLower.equals("dog"))
             return new Dog(name);
