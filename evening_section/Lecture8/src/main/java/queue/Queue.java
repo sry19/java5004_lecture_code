@@ -5,36 +5,36 @@ import linkedlist.ILinkedList;
 
 import java.util.Objects;
 
-public class Queue implements IQueue {
-    private ILinkedList front;
+public class Queue<T> implements IQueue<T> {
+    private ILinkedList<T> front;
 
     private Queue() {
-        this.front = new EmptyNode();
+        this.front = new EmptyNode<>();
     }
 
     public static Queue createEmpty() {
-        return new Queue();
+        return new Queue<>();
     }
 
     /**
-     * Adds an Integer to the Queue.
+     * Adds an item to the Queue.
      *
-     * @param item The Integer to add to the Queue.
+     * @param item The item to add to the Queue.
      */
     @Override
-    public void enqueue(Integer item) {
+    public void enqueue(T item) {
         this.front = this.front.insertAt(item, this.size());
     }
 
     /**
-     * Removes and returns the Integer at the front of the Queue if the Queue is not empty.
+     * Removes and returns the item at the front of the Queue if the Queue is not empty.
      *
-     * @return The Integer at the front of the Queue, if the Queue is not empty.
+     * @return The item at the front of the Queue, if the Queue is not empty.
      * @throws EmptyQueueException if the Queue is empty.
      */
     @Override
-    public Integer dequeue() throws EmptyQueueException {
-        Integer frontItem = this.front();
+    public T dequeue() throws EmptyQueueException {
+        T frontItem = this.front();
         this.front = this.front.getRest();
         return frontItem;
     }
@@ -42,11 +42,11 @@ public class Queue implements IQueue {
     /**
      * Returns but does not remove the Integer at the front of the Queue.
      *
-     * @return The Integer at the front of the Queue, if the Queue is not empty.
+     * @return The item at the front of the Queue, if the Queue is not empty.
      * @throws EmptyQueueException if the Queue is empty.
      */
     @Override
-    public Integer front() throws EmptyQueueException {
+    public T front() throws EmptyQueueException {
         if (this.size().equals(0))
             throw new EmptyQueueException();
         return this.front.getItem();
@@ -66,7 +66,7 @@ public class Queue implements IQueue {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Queue queue = (Queue) o;
+        Queue<?> queue = (Queue<?>) o;
         return Objects.equals(front, queue.front);
     }
 

@@ -7,7 +7,7 @@ import java.util.EmptyStackException;
 import static org.junit.Assert.*;
 
 public class IStackTest {
-    IStack emptyStack;
+    IStack<Integer> emptyStack;
 
     @Before
     public void setUp() throws Exception {

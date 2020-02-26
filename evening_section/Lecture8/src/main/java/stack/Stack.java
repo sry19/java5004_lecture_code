@@ -6,24 +6,24 @@ import linkedlist.ILinkedList;
 import java.util.EmptyStackException;
 import java.util.Objects;
 
-public class Stack implements IStack {
-    private ILinkedList top;
+public class Stack<T> implements IStack<T> {
+    private ILinkedList<T> top;
 
     private Stack() {
-        this.top = new EmptyNode();
+        this.top = new EmptyNode<>();
     }
 
 
     public static Stack createEmpty() {
-        return new Stack();
+        return new Stack<>();
     }
     /**
-     * Adds an Integer to the Stack.
+     * Adds an item to the Stack.
      *
-     * @param item An Integer to push onto the Stack.
+     * @param item An item to push onto the Stack.
      */
     @Override
-    public void push(Integer item) {
+    public void push(T item) {
         this.top = this.top.insert(item);
     }
 
@@ -35,8 +35,8 @@ public class Stack implements IStack {
      *                             EmptyStackException is a built-in Java exception.
      */
     @Override
-    public Integer pop() throws EmptyStackException {
-        Integer poppedItem = this.top();
+    public T pop() throws EmptyStackException {
+        T poppedItem = this.top();
         this.top = this.top.getRest();
         return poppedItem;
     }
@@ -49,7 +49,7 @@ public class Stack implements IStack {
      *                             EmptyStackException is a built-in Java exception.
      */
     @Override
-    public Integer top() throws EmptyStackException {
+    public T top() throws EmptyStackException {
         if (this.isEmpty())
             throw new EmptyStackException();
         return this.top.getItem();
@@ -69,7 +69,7 @@ public class Stack implements IStack {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Stack stack = (Stack) o;
+        Stack<?> stack = (Stack<?>) o;
         return Objects.equals(top, stack.top);
     }
 

@@ -1,29 +1,29 @@
 package queue;
 
 /**
- * A mutable Queue ADT. This Queue will only contain Integers. A Queue is a FIFO (first-in, first-out) data structure.
+ * A mutable Queue ADT. A Queue is a FIFO (first-in, first-out) data structure.
  */
-public interface IQueue {
+public interface IQueue<T> {
 
     /**
-     * Adds an Integer to the Queue.
-     * @param item The Integer to add to the Queue.
+     * Adds an item to the Queue.
+     * @param item The item to add to the Queue.
      */
-    void enqueue(Integer item);
+    void enqueue(T item);
 
     /**
-     * Removes and returns the Integer at the front of the Queue if the Queue is not empty.
-     * @return The Integer at the front of the Queue, if the Queue is not empty.
+     * Removes and returns the item at the front of the Queue if the Queue is not empty.
+     * @return The item at the front of the Queue, if the Queue is not empty.
      * @throws EmptyQueueException if the Queue is empty.
      */
-    Integer dequeue() throws EmptyQueueException;
+    T dequeue() throws EmptyQueueException;
 
     /**
-     * Returns but does not remove the Integer at the front of the Queue.
-     * @return The Integer at the front of the Queue, if the Queue is not empty.
+     * Returns but does not remove the item at the front of the Queue.
+     * @return The item at the front of the Queue, if the Queue is not empty.
      * @throws EmptyQueueException if the Queue is empty.
      */
-    Integer front() throws EmptyQueueException;
+    T front() throws EmptyQueueException;
 
     /**
      * Gets the number of items in the Queue.

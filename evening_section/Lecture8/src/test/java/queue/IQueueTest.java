@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class IQueueTest {
 
-    IQueue emptyQ;
+    IQueue<Integer> emptyQ;
 
     @Before
     public void setUp() throws Exception {

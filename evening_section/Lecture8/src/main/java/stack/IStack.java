@@ -3,15 +3,15 @@ package stack;
 import java.util.EmptyStackException;
 
 /**
- * Mutable Stack ADT. This Stack contains only Integers. A Stack is a LIFO ("last-in, first-out") data structure.
+ * Mutable Stack ADT. A Stack is a LIFO ("last-in, first-out") data structure.
  */
-public interface IStack {
+public interface IStack<T> {
 
     /**
-     * Adds an Integer to the Stack.
-     * @param item An Integer to push onto the Stack.
+     * Adds an item to the Stack.
+     * @param item An item to push onto the Stack.
      */
-    void push(Integer item);
+    void push(T item);
 
     /**
      * Returns and removes the most recently-added item.
@@ -19,7 +19,7 @@ public interface IStack {
      * @throws EmptyStackException Throws an EmptyStackException if the method is called on an empty Stack. Note:
      * EmptyStackException is a built-in Java exception.
      */
-    Integer pop() throws EmptyStackException;
+    T pop() throws EmptyStackException;
 
     /**
      * Returns the most recently-added item.
@@ -27,7 +27,7 @@ public interface IStack {
      * @throws EmptyStackException Throws an EmptyStackException if the method is called on an empty Stack. Note:
      * EmptyStackException is a built-in Java exception.
      */
-    Integer top() throws EmptyStackException;
+    T top() throws EmptyStackException;
 
     /**
      * Tests if this Stack is empty.
