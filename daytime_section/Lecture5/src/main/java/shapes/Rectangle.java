@@ -42,8 +42,6 @@ public class Rectangle extends AbstractShape {
         sqrtFactor * this.height);
   }
 
-}
-
   public String toString() {
     return String.format("Rectangle: LL corner (%.3f,%.3f) width %.3f height " +
             "%.3f",
