@@ -1,7 +1,6 @@
 package password;
 
-import java.io.Console;
-import java.util.Arrays;
+import java.util.Scanner;
 import java.io.IOException;
 
 public class Password {
@@ -9,37 +8,38 @@ public class Password {
 
   public static void main (String args[]) throws IOException {
 
-    Console c = System.console();
-    if (c == null) {
+    Scanner console = new Scanner(System.in);
+    if (console == null) {
       System.err.println(errString);
       System.exit(1);
     }
 
-    String login = c.readLine("Enter your login: ");
-    char [] oldPassword = c.readPassword("Enter your old password: ");
+    System.out.println("Enter your username:");
+    String username = console.nextLine();
 
-    if (verify(login, oldPassword)) {
+    System.out.println("Enter your old password");
+    String oldPassword = console.nextLine();
+
+    if (verify(username, oldPassword)) {
       boolean noMatch;
       do {
-        char [] newPassword1 = c.readPassword("Enter your new password: ");
-        char [] newPassword2 = c.readPassword("Enter new password again: ");
-        noMatch = ! Arrays.equals(newPassword1, newPassword2);
+        System.out.println("Enter your new password: ");
+        String newPassword1 = console.nextLine();
+        System.out.println("Enter your new password again: ");
+        String newPassword2 = console.nextLine();
+        noMatch = ! newPassword1.equals(newPassword2);
         if (noMatch) {
-          c.format("Passwords don't match. Try again.%n");
+          System.out.println("Passwords don't match. Try again.");
         } else {
-          change(login, newPassword1);
-          c.format("Password for %s changed.%n", login);
+          change(username, newPassword1);
+          System.out.println("Password has been successfully changed!");
         }
-        Arrays.fill(newPassword1, ' ');
-        Arrays.fill(newPassword2, ' ');
       } while (noMatch);
     }
-
-    Arrays.fill(oldPassword, ' ');
   }
 
   // Dummy change method.
-  static boolean verify(String login, char[] password) {
+  private static boolean verify(String login, String password) {
     // This method always returns
     // true in this example.
     // Modify this method to verify
@@ -48,7 +48,7 @@ public class Password {
   }
 
   // Dummy change method.
-  static void change(String login, char[] password) {
+  private static void change(String login, String password) {
     // Modify this method to change
     // password according to your rules.
   }
