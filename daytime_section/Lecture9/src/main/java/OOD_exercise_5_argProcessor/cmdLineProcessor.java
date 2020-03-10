@@ -1,27 +1,16 @@
-package argProcessor;
-
-import com.sun.tools.classfile.Exceptions_attribute;
+package OOD_exercise_5_argProcessor;
 
 public class cmdLineProcessor {
-    public  CLData myCLData;
+    public CLData myCLData;
     private final String LOCALHOST = "localhost";
     private final String PLAIN = "plain";
 
-    public cmdLineProcessor(){
+    public cmdLineProcessor() {
+
         myCLData = new CLData();
     }
 
-    public void processArguments(String[] args) {
-
-        try {
-            Integer port = Integer.valueOf(args[0]);
-            if (port < 1000 || port > 65000)
-                throw new CommandLineExceptions("Incorrect port number!");
-            myCLData.setPort(port);
-        } catch (NumberFormatException e) {
-            throw new CommandLineExceptions("Incorrect port format!");
-        }
-
+    public Boolean processArguments(String[] args) {
         if (args.length == 2) {
             try {
                 if ((args[1].equals("--plain")) || (args[1].equals("--encrypt"))) {
@@ -46,7 +35,19 @@ public class cmdLineProcessor {
                 throw new CommandLineExceptions("Incorrect hostname or encryption format!");
             }
         }
+        return Boolean.TRUE;
+    }
 
+    private Boolean validatePort(String portStr) {
+        try {
+            Integer port = Integer.valueOf(portStr);
+            if (port < 1000 || port > 65000)
+                throw new CommandLineExceptions("Incorrect port number!");
+            myCLData.setPort(port);
+        } catch (NumberFormatException e) {
+            throw new CommandLineExceptions("Incorrect port format!");
+        }
+        return Boolean.TRUE;
     }
 }
 
