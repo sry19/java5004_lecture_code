@@ -80,3 +80,7 @@ daytime_section/Lecture4/gradlew
 daytime_section/Lecture4/settings.gradle
 daytime_section/Lecture3_OOD_exercise/gradlew
 *.gradle
+daytime_section/Lecture10_OOD_exercise/gradlew
+daytime_section/Lecture9/gradlew
+labs/Lab5/gradlew
+daytime_section/Lecture9/src/main/java/regularExpressions/MainRE.java
