@@ -3,6 +3,7 @@ package comparison;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MainStream2 {
@@ -55,6 +56,7 @@ public class MainStream2 {
    runners.add(runnerB);
    runners.add(runnerC);
 
+    //Comparator<Runner> numRaces = new RunnerComparator();
     Comparator<Runner> numRaces = new Comparator<Runner>() {
 
       @Override
@@ -66,6 +68,7 @@ public class MainStream2 {
     System.out.println("Runner:" + runners);
 
     runners.sort(numRaces);
+    //Collections.sort(runners, numRaces);
     System.out.println("Runners again:" + runners);
   }
 }

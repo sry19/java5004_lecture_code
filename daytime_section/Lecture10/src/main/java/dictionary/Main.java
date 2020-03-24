@@ -8,7 +8,6 @@ public class Main {
         new ElementDictionaryNode<>("B", 1, new ElementDictionaryNode<>("C", 2)));
     for (String key: dict) {
       System.out.println(key + ": " + dict.getValue(key));
-
     }
   }
 

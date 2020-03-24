@@ -11,11 +11,13 @@ public class GenericListIterator<X> implements Iterator<X> {
   private AList<X> list;
 
   public GenericListIterator(AList<X> xes) {
+
     this.list = xes;
   }
 
   @Override
   public boolean hasNext() {
+
     return !list.isEmpty();
   }
 
@@ -28,7 +30,6 @@ public class GenericListIterator<X> implements Iterator<X> {
     } catch (GenericListException glex) {
       throw new NoSuchElementException(glex.getMessage());
     }
-
   }
 
   @Override
