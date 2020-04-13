@@ -12,6 +12,7 @@ public interface List<X> {
    * @return an empty list that can hold elements of type Y
    */
   static <Y> List<Y> createEmpty() {
+
     return Empty.getInstance();
   }
   /**

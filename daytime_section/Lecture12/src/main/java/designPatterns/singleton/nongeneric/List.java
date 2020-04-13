@@ -1,6 +1,6 @@
 package designPatterns.singleton.nongeneric;
 
-import edu.neu.khoury.cs5004.designPatterns.singleton.nongeneric.stringlist.Empty;
+import designPatterns.singleton.nongeneric.stringlist.Empty;
 
 /**
  * Created by therapon on 6/20/16.
@@ -8,6 +8,7 @@ import edu.neu.khoury.cs5004.designPatterns.singleton.nongeneric.stringlist.Empt
 public interface List {
 
   public static List createEmpty() {
+
     return Empty.getInstance();
   }
 

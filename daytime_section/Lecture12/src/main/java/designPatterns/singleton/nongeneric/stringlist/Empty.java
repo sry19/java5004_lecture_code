@@ -1,7 +1,7 @@
 package designPatterns.singleton.nongeneric.stringlist;
 
 
-import edu.neu.khoury.cs5004.designPatterns.singleton.nongeneric.GenericListException;
+import designPatterns.singleton.nongeneric.GenericListException;
 
 /**
  * Created by therapon on 6/20/16.
@@ -10,7 +10,7 @@ public class Empty extends AStringList {
 
   private static Empty instance;
 
-  public static Empty getInstance() {
+  public static synchronized Empty getInstance() {
     if (Empty.instance == null) {
       Empty.instance = new Empty();
     }

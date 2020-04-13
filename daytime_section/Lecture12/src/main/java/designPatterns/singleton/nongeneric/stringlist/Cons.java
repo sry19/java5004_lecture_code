@@ -1,7 +1,7 @@
 package designPatterns.singleton.nongeneric.stringlist;
 
 
-import edu.neu.khoury.cs5004.designPatterns.singleton.nongeneric.GenericListException;
+import designPatterns.singleton.nongeneric.GenericListException;
 
 /**
  * Created by therapon on 6/20/16.

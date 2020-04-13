@@ -33,7 +33,7 @@ public class ShapeFactory {
         this.height = 10;
     }
 
-    public Shape getCircle(ShapeName name) {
+    public Shape getShape(ShapeName name) {
         if (ShapeName.circleName().equals(name)) {
             return new Circle(posn, radius);
         } else if (ShapeName.squareName().equals(name)) {

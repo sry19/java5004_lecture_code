@@ -1,4 +1,4 @@
-package streams;
+package functional_programming.streams;
 
 import java.util.ArrayList;
 import java.util.Comparator;
